@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Categorías de Moda</title>
+
+<style>
+
+body{
+background:linear-gradient(#ffd6ec,#ffc2e2);
+font-family:"Comic Sans MS", cursive;
+text-align:center;
+}
+
+/* TITULO */
+
+h1{
+color:#ff2f92;
+margin-top:30px;
+}
+
+/* TABLA */
+
+table{
+margin:auto;
+border-collapse:collapse;
+width:60%;
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+}
+
+th{
+background:#ff8fcf;
+color:white;
+font-size:20px;
+padding:15px;
+}
+
+td{
+padding:15px;
+font-size:18px;
+color:#ff4da6;
+border-bottom:1px solid #ffd6ec;
+}
+
+tr:hover{
+background:#ffe6f2;
+}
+
+/* BRILLITOS */
+
+.brillo{
+position:fixed;
+top:-10px;
+font-size:20px;
+color:white;
+animation:caer 6s linear infinite;
+}
+
+@keyframes caer{
+0%{
+transform:translateY(-10px);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(100vh);
+opacity:0;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+<h1>✨ Categorías de Moda ✨</h1>
+<br>
+<br>
+<table borde="1">
+<tr>
+<th>Categoría</th>
+</tr>
+<tr>
+    <td>✨ <a href="principal.html" target="principal">presentacion </a></td>
+    </tr>
+    <tr>
+    <td>👟 <a href="zapatos.html" target="principal">Zapatos</a></td>
+    </tr>
+    <tr>
+        <td>👖 <a href="pantalones.html" target="principal">Pantalones</a></td>
+    </tr>
+    <tr>
+        <td>👕 <a href="playeras.html" target="principal">Playeras</a></td>
+    </tr>
+    <tr>
+        <td>💍 <a href="anillos.html" target="principal">Anillos</a></td>
+    </tr>
+    <tr>
+        <td>📿 <a href="collares.html" target="principal">Collares</a></td>
+    </tr>
+    </table>
+<!-- Iframe donde se muestra el contenido -->
+
+<!-- BRILLOS -->
+
+<div class="brillo" style="left:10%;">✨</div>
+<div class="brillo" style="left:20%; animation-delay:1s;">✨</div>
+<div class="brillo" style="left:30%; animation-delay:2s;">✨</div>
+<div class="brillo" style="left:40%; animation-delay:3s;">✨</div>
+<div class="brillo" style="left:50%; animation-delay:4s;">✨</div>
+<div class="brillo" style="left:60%; animation-delay:2s;">✨</div>
+<div class="brillo" style="left:70%; animation-delay:1s;">✨</div>
+<div class="brillo" style="left:80%; animation-delay:3s;">✨</div>
+<div class="brillo" style="left:90%; animation-delay:4s;">✨</div>
+</body>
+</html>

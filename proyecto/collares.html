@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Collares ✨</title>
+    <style>
+        :root {
+            --rosa-p: #ff2f92;
+            --rosa-t: #880e4f;
+            --blanco: #ffffff;
+        }
+
+        body {
+            background: linear-gradient(#ffd6ec, #ffc2e2);
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            margin: 0;
+            padding-bottom: 50px;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: var(--rosa-p);
+            font-size: 45px;
+            margin-top: 20px;
+            text-shadow: 2px 2px white;
+        }
+
+        /* CONTENEDOR DEL CATALOGO */
+        .catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* TARJETAS DE PRODUCTO */
+        .producto {
+            background: white;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .producto:hover {
+            transform: scale(1.05);
+        }
+
+        .producto img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .nombre {
+            color: #ff4da6;
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* ESTRELLAS ANIMADAS */
+        .estrella {
+            position: fixed;
+            top: -10px;
+            color: white;
+            font-size: 20px;
+            z-index: -1;
+            animation: caer 5s linear infinite;
+        }
+
+        @keyframes caer {
+            0% { transform: translateY(-10px); }
+            100% { transform: translateY(100vh); }
+        }
+
+        /* VENTANA DETALLE (MODAL) */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.7); 
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-contenido {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 20px;
+            width: 85%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            animation: zoom 0.3s;
+        }
+
+        @keyframes zoom { from {transform: scale(0.8); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+
+        .cerrar {
+            position: absolute; right: 15px; top: 10px;
+            font-size: 30px; cursor: pointer; color: #999;
+        }
+
+        #imgDetalle {
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .precio-tag { 
+            display: inline-block; 
+            margin-top: 15px; 
+            padding: 10px 25px;
+            background: #ffd6ec; 
+            color: var(--rosa-t);
+            font-weight: bold; 
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>✨ Catálogo de Collares ✨</h1>
+
+    <div class="catalogo">
+        <div class="producto" onclick="abrir('https://cdn-images.farfetch-contents.com/32/16/24/09/32162409_61980138_1000.jpg', 'Collar Elegante', 'Dije de orbe clásico plateado con cristales de colores.', '$1,800 - $2,500')">
+            <img src="https://cdn-images.farfetch-contents.com/32/16/24/09/32162409_61980138_1000.jpg" alt="Elegante">
+            <div class="nombre">Collar Elegante</div>
+        </div>
+
+        <div class="producto" onclick="abrir('https://img01.ztat.net/article/spp-media-p1/e77c011d11b24e73a65db1e4fbd58a45/76134b54107b4e4f9cb8c1a949abf961.jpg?imwidth=762&filter=packshot', 'Collar Perla', 'Hilera de perlas finas con mini orbe central plateado.', '$2,200 - $3,200')">
+            <img src="https://img01.ztat.net/article/spp-media-p1/e77c011d11b24e73a65db1e4fbd58a45/76134b54107b4e4f9cb8c1a949abf961.jpg?imwidth=762&filter=packshot" alt="Perla">
+            <div class="nombre">Collar Perla</div>
+        </div>
+
+        <div class="producto" onclick="abrir('https://th.bing.com/th?id=OPHS.bZH2h%2fvxxbaAIw474C474&w=592&h=550&qlt=20&o=5&dpr=1.3&pid=21.1', 'Collar Corazón', 'Dije de corazón 3D color crema con anillo de cristales.', '$1,900 - $2,600')">
+            <img src="https://th.bing.com/th?id=OPHS.bZH2h%2fvxxbaAIw474C474&w=592&h=550&qlt=20&o=5&dpr=1.3&pid=21.1" alt="Corazón">
+            <div class="nombre">Collar Corazón</div>
+        </div>
+
+        <div class="producto" onclick="abrir('https://www.viviennewestwood.com/dw/image/v2/BJGV_PRD/on/demandware.static/-/Sites-viviennewestwood-master-catalog/default/dw4b6290c2/images/6303003Q-02P409-_PLATINUM-WHITE-Crystal_002_large.jpg?q=80', 'Collar Dorado', 'Baño de oro intenso con un diseño de orbe ancho y cristales.', '$2,000 - $2,800')">
+            <img src="https://www.viviennewestwood.com/dw/image/v2/BJGV_PRD/on/demandware.static/-/Sites-viviennewestwood-master-catalog/default/dw4b6290c2/images/6303003Q-02P409-_PLATINUM-WHITE-Crystal_002_large.jpg?q=80" alt="Dorado">
+            <div class="nombre">Collar Dorado</div>
+        </div>
+
+        <div class="producto" onclick="abrir('https://images.stockx.com/images/Vivienne-Westwood-Necklace-Simonetta-Pearl-Silver-2.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&trimcolor=ffffff&updated_at=1664225220?height=78&width=78', 'Collar Minimalista', 'Combinación de cadena metálica con perlas blancas clásicas.', '$1,800 - $2,400')">
+            <img src="https://images.stockx.com/images/Vivienne-Westwood-Necklace-Simonetta-Pearl-Silver-2.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&trimcolor=ffffff&updated_at=1664225220?height=78&width=78" alt="Minimalista">
+            <div class="nombre">Collar Minimalista</div>
+        </div>
+
+        <div class="producto" onclick="abrir('https://th.bing.com/th/id/OPHS.4WVQ2nD1a6T43w474C474?w=592&h=550&o=5&dpr=1.3&pid=21.1', 'Collar Brillante', 'Dije de corazón tornasol con orbe grabado y cadena oscura.', '$1,500 - $2,100')">
+            <img src="https://th.bing.com/th/id/OPHS.4WVQ2nD1a6T43w474C474?w=592&h=550&o=5&dpr=1.3&pid=21.1" alt="Brillante">
+            <div class="nombre">Collar Brillante</div>
+        </div>
+
+        <div class="producto" onclick="abrir('https://img01.ztat.net/article/spp-media-p1/890a3755655c4d829c7ff27a97871142/2a7c6331e25d4ea68ca2d8a7a40da8eb.jpg?imwidth=762&filter=packshot', 'Collar Vintage', 'Estilo clásico en plata vieja con diseño discreto.', '$1,400 - $1,900')">
+            <img src="https://img01.ztat.net/article/spp-media-p1/890a3755655c4d829c7ff27a97871142/2a7c6331e25d4ea68ca2d8a7a40da8eb.jpg?imwidth=762&filter=packshot" alt="Vintage">
+            <div class="nombre">Collar Vintage</div>
+        </div>
+
+        <div class="producto" onclick="abrir('https://www.viviennewestwood.com/dw/image/v2/BJGV_PRD/on/demandware.static/-/Sites-viviennewestwood-master-catalog/default/dw8684ecf0/images/63020098-02S001-CN_RUTHENIUM_004_large.jpg?q=80', 'Collar Flor', 'Gargantilla fina y delicada con dije pequeño de orbe.', '$1,200 - $1,700')">
+            <img src="https://www.viviennewestwood.com/dw/image/v2/BJGV_PRD/on/demandware.static/-/Sites-viviennewestwood-master-catalog/default/dw8684ecf0/images/63020098-02S001-CN_RUTHENIUM_004_large.jpg?q=80" alt="Flor">
+            <div class="nombre">Collar Flor</div>
+        </div>
+
+        <div class="producto" onclick="abrir('https://img01.ztat.net/article/spp-media-p1/7eae57dc9c364335acaed73ce3bc681e/fdcc074adc3d4da09e12b3ae2d69bb5c.jpg?imwidth=300&filter=packshot', 'Choker de múltiples capas de perlas pequeñas muy elegantes.', '$3,500 - $5,000')">
+            <img src="https://img01.ztat.net/article/spp-media-p1/7eae57dc9c364335acaed73ce3bc681e/fdcc074adc3d4da09e12b3ae2d69bb5c.jpg?imwidth=300&filter=packshot">
+            <div class="nombre">Collar Estrella</div>
+        </div>
+
+        <div class="producto" onclick="abrir('https://cdn-images.farfetch-contents.com/25/27/12/95/25271295_55598178_1000.jpg', 'Collar Estrella', 'Collar Deluxe', 'Perlas grandes con dije de orbe dorado y perla gota colgante.', '$2,800 - $3,800')">
+            <img src="https://cdn-images.farfetch-contents.com/25/27/12/95/25271295_55598178_1000.jpg" alt="Estrella" alt="Deluxe">
+            <div class="nombre">Collar Deluxe</div>
+        </div>
+
+         </div>
+
+    <div class="estrella" style="left:10%;">⭐</div>
+    <div class="estrella" style="left:20%; animation-delay:1s;">⭐</div>
+    <div class="estrella" style="left:30%; animation-delay:2s;">⭐</div>
+    <div class="estrella" style="left:40%; animation-delay:3s;">⭐</div>
+    <div class="estrella" style="left:50%; animation-delay:4s;">⭐</div>
+    <div class="estrella" style="left:70%; animation-delay:1s;">⭐</div>
+    <div class="estrella" style="left:90%; animation-delay:4s;">⭐</div>
+
+    <div id="miModal" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrar()">&times;</span>
+            <img id="imgDetalle" src="" alt="Detalle">
+            <h2 id="txtNombre" style="color: #ff4da6;"></h2>
+            <p id="txtInfo" style="color: #555;"></p>
+            <div class="precio-tag" id="txtPrecio"></div>
+        </div>
+    </div>
+
+    <script>
+        function abrir(url, nombre, info, precio) {
+            document.getElementById('imgDetalle').src = url;
+            document.getElementById('txtNombre').innerText = nombre;
+            document.getElementById('txtInfo').innerText = info;
+            document.getElementById('txtPrecio').innerText = precio;
+            document.getElementById('miModal').style.display = "block";
+        }
+
+        function cerrar() {
+            document.getElementById('miModal').style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById('miModal');
+            if (event.target == modal) { cerrar(); }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Moonlight Glam - Zapatos</title>
+
+<style>
+
+body{
+background:linear-gradient(#ffd6ec,#ffc2e2);
+font-family:'Comic Sans MS',cursive;
+text-align:center;
+margin:0;
+overflow-x:hidden;
+}
+
+/* TITULO */
+
+h1{
+font-family:'Brush Script MT',cursive;
+color:#ff2f92;
+font-size:60px;
+margin-top:30px;
+text-shadow:2px 2px 8px #ffb6da;
+}
+
+/* CATALOGO */
+
+.catalogo{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:30px;
+padding:40px;
+width:90%;
+margin:auto;
+}
+
+/* TARJETAS */
+
+.product{
+background:white;
+border-radius:30px;
+padding:15px;
+box-shadow:0 8px 20px rgba(255,105,180,0.4);
+cursor:pointer;
+transition:transform .3s, box-shadow .3s;
+position:relative;
+overflow:hidden;
+}
+
+.product:hover{
+transform:translateY(-8px) scale(1.05);
+box-shadow:0 12px 28px rgba(255,105,180,0.7);
+}
+
+/* BRILLO EN TARJETAS */
+
+.product::before{
+content:"";
+position:absolute;
+top:-50%;
+left:-50%;
+width:200%;
+height:200%;
+background:linear-gradient(
+120deg,
+transparent 30%,
+rgba(255,255,255,0.8) 50%,
+transparent 70%
+);
+transform:rotate(25deg) translateX(-100%);
+transition:transform .6s;
+pointer-events:none;
+}
+
+.product:hover::before{
+transform:rotate(25deg) translateX(100%);
+}
+
+.product img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.nombre{
+margin-top:10px;
+color:#ff4da6;
+font-size:18px;
+font-weight:bold;
+}
+
+/* MODAL */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+animation:fadeIn .4s ease;
+}
+
+.modal-content{
+background:white;
+width:350px;
+margin:10% auto;
+padding:20px;
+border-radius:25px;
+animation:zoomIn .4s ease;
+}
+
+.modal img{
+width:250px;
+border-radius:10px;
+}
+
+.close{
+float:right;
+font-size:30px;
+cursor:pointer;
+color:#ff4da6;
+}
+
+/* ANIMACIONES */
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+@keyframes zoomIn{
+from{transform:scale(.5);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+/* ESTRELLAS */
+
+.star{
+position:fixed;
+color:white;
+font-size:20px;
+animation:fall 6s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10px);opacity:0;}
+50%{opacity:1;}
+100%{transform:translateY(100vh);opacity:0;}
+}
+
+/* FLORES */
+
+.flower{
+position:fixed;
+font-size:22px;
+animation:float 10s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(-20px);}
+100%{transform:translateY(100vh);}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>✨🌸 Catálogo de Zapatos 🌸✨</h1>
+
+<div class="catalogo">
+
+<div class="product" onclick="abrir(this)" data-precio="$2016" data-talla="24" data-desc="Tacón elegante ideal para eventos formales.">
+<img src="https://m.media-amazon.com/images/I/51VVEtNZ06L._AC_SY395_.jpg">
+<div class="nombre">Zapato Elegante</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$1361" data-talla="29" data-desc="Tenis cómodos perfectos para uso diario.">
+<img src="https://m.media-amazon.com/images/I/61ruYDSYlaL._AC_SY395_SX395_QL70_ML2_.jpg">
+<div class="nombre">Zapato Deportivo</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$1352" data-talla="26" data-desc="Diseño sencillo para un look casual.">
+<img src="https://m.media-amazon.com/images/I/81YfbETP+wL._AC_SY395_.jpg">
+<div class="nombre">Zapato Casual</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$1399" data-talla="29" data-desc="Ideal para eventos elegantes.">
+<img src="https://m.media-amazon.com/images/I/51JBtooDnPL._AC_SY500_.jpg">
+<div class="nombre">Zapato Formal</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$2425" data-talla="29" data-desc="Estilo deportivo con gran comodidad.">
+<img src="https://m.media-amazon.com/images/I/615JMhvKuLL._AC_SX395_.jpg">
+<div class="nombre">Zapato Sport</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$2605" data-talla="23.5" data-desc="Zapato bohemio moderno.">
+<img src="https://m.media-amazon.com/images/I/71omDmwMdOL._AC_SY395_.jpg">
+<div class="nombre">Zapato Boho</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$1143" data-talla="22" data-desc="Perfecto para fiestas.">
+<img src="https://m.media-amazon.com/images/I/61WQqtHN9bL._AC_SY395_.jpg">
+<div class="nombre">Zapato de Noche</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$1158" data-talla="25" data-desc="Diseño blanco sofisticado.">
+<img src="https://m.media-amazon.com/images/I/51W16xPsDNL._AC_SY500_.jpg">
+<div class="nombre">Zapato Elegante Blanco</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$512" data-talla="23" data-desc="Zapato ligero para verano.">
+<img src="https://m.media-amazon.com/images/I/61WJS3xF9QL._AC_SY500_.jpg">
+<div class="nombre">Zapato de Verano</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$3805" data-talla="23" data-desc="Modelo exclusivo de lujo.">
+<img src="https://m.media-amazon.com/images/I/71nibD583lL._AC_SY535_.jpg">
+<div class="nombre">Zapato de Lujo</div>
+</div>
+
+</div>
+
+<div id="modal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="cerrar()">×</span>
+<img id="modal-img">
+<h3 id="modal-precio"></h3>
+<h3 id="modal-talla"></h3>
+<p id="modal-desc"></p>
+</div>
+</div>
+
+<!-- ESTRELLAS -->
+
+<div class="star" style="left:10%">✨</div>
+<div class="star" style="left:30%;animation-delay:2s">✨</div>
+<div class="star" style="left:50%;animation-delay:4s">✨</div>
+<div class="star" style="left:70%;animation-delay:1s">✨</div>
+<div class="star" style="left:90%;animation-delay:3s">✨</div>
+
+<!-- FLORES -->
+
+<div class="flower" style="left:20%">🌸</div>
+<div class="flower" style="left:60%;animation-delay:3s">🌸</div>
+<div class="flower" style="left:80%;animation-delay:6s">🌸</div>
+
+<script>
+
+function abrir(producto){
+
+document.getElementById("modal").style.display="block";
+
+document.getElementById("modal-img").src =
+producto.querySelector("img").src;
+
+document.getElementById("modal-precio").innerText =
+"Precio: " + producto.dataset.precio;
+
+document.getElementById("modal-talla").innerText =
+"Talla: " + producto.dataset.talla;
+
+document.getElementById("modal-desc").innerText =
+producto.dataset.desc;
+
+}
+
+function cerrar(){
+document.getElementById("modal").style.display="none";
+}
+
+</script>
+
+</body>
+</html>

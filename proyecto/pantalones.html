@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Moonlight Glam - Pantalones</title>
+
+<style>
+
+body{
+background:linear-gradient(#d9ffe6,#b8ffd1);
+font-family:'Comic Sans MS',cursive;
+text-align:center;
+margin:0;
+overflow-x:hidden;
+}
+
+h1{
+font-family:'Brush Script MT',cursive;
+color:#1e9c63;
+font-size:60px;
+margin-top:30px;
+text-shadow:2px 2px 8px #9cffc8;
+}
+
+.catalogo{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:30px;
+padding:40px;
+width:90%;
+margin:auto;
+}
+
+.product{
+background:white;
+border-radius:30px;
+padding:15px;
+box-shadow:0 8px 20px rgba(0,150,90,0.4);
+cursor:pointer;
+transition:.3s;
+}
+
+.product:hover{
+transform:scale(1.05);
+}
+
+.product img{
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.nombre{
+margin-top:10px;
+color:#1e9c63;
+font-size:18px;
+font-weight:bold;
+}
+
+/* MODAL */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+}
+
+.modal-content{
+background:white;
+width:350px;
+margin:10% auto;
+padding:20px;
+border-radius:25px;
+text-align:center;
+}
+
+.modal img{
+width:250px;
+border-radius:10px;
+}
+
+.close{
+float:right;
+font-size:30px;
+cursor:pointer;
+color:#1e9c63;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>✨ Catálogo de Pantalones ✨</h1>
+
+<div class="catalogo">
+
+<!-- PRODUCTO 1 -->
+<div class="product" onclick="abrir(this)"
+data-precio="$369"
+data-talla="Talla 3,5,7,9,11,13"
+data-desc="Jeans recto azul deslavado para mujer de mezclilla con bolsillos cargo.">
+
+<img src="https://app.cuidadoconelperro.com.mx/media/catalog/product/1/2/122250821010617-2.jpg?optimize=medium&fit=bounds&width=768&quality=75">
+
+<div class="nombre">Pantalón recto azul deslavado</div>
+</div>
+
+<!-- PRODUCTO 2 -->
+<div class="product" onclick="abrir(this)"
+data-precio="$379"
+data-talla="Talla 3,5,7,9,11,13"
+data-desc="Jeans wide leg gris de estilo contemporáneo.">
+
+<img src="https://app.cuidadoconelperro.com.mx/media/catalog/product/1/2/122251121011057-2.jpg?optimize=medium&fit=bounds&width=768&quality=75">
+
+<div class="nombre">Jeans Wide Leg Gris</div>
+</div>
+
+<!-- PRODUCTO 3 -->
+<div class="product" onclick="abrir(this)"
+data-precio="$329"
+data-talla="Talla XS,S,M,L,XL"
+data-desc="Pantalón azul con raya y moños a los costados.">
+
+<img src="https://app.cuidadoconelperro.com.mx/media/catalog/product/1/2/122260321080017-2.jpg?optimize=medium&fit=bounds&width=768&quality=75">
+
+<div class="nombre">Pantalón con Moños Azul</div>
+</div>
+
+<!-- PRODUCTO 4 -->
+<div class="product" onclick="abrir(this)"
+data-precio="$349"
+data-talla="Talla 3,5,7,11"
+data-desc="Shorts wide leg de mezclilla azul claro con cierre y botón.">
+
+<img src="https://app.cuidadoconelperro.com.mx/media/catalog/product/1/2/122260223030317-2.jpg?optimize=medium&fit=bounds&width=768&quality=75">
+
+<div class="nombre">Shorts Wide Leg Azul Claro</div>
+</div>
+
+<!-- PRODUCTO 5 -->
+<div class="product" onclick="abrir(this)"
+data-precio="$369"
+data-talla="Talla XS,S,M,L,XL"
+data-desc="Pantalón tipo pants lavado negro para mujer.">
+
+<img src="https://app.cuidadoconelperro.com.mx/media/catalog/product/1/0/102260221080042-2.jpg?optimize=medium&fit=bounds&width=768&quality=75">
+
+<div class="nombre">Pantalón Tipo Pants Lavado Negro</div>
+</div>
+
+<!-- PRODUCTO 6 -->
+<div class="product" onclick="abrir(this)"
+data-precio="$399"
+data-talla="Talla 3,5,7,13"
+data-desc="Pantalón balloon con costuras en contraste y bolsas cargo.">
+
+<img src="https://app.cuidadoconelperro.com.mx/media/catalog/product/1/2/122251221021051-2.jpg?optimize=medium&fit=bounds&width=768&quality=75">
+
+<div class="nombre">Pantalón Balloon Café</div>
+</div>
+
+<!-- PRODUCTO 7 -->
+<div class="product" onclick="abrir(this)"
+data-precio="$399"
+data-talla="Talla 3,5,7"
+data-desc="Pantalón balloon de gabardina verde con estilo moderno.">
+
+<img src="https://app.cuidadoconelperro.com.mx/media/catalog/product/1/2/122251221021050-2.jpg?optimize=medium&fit=bounds&width=768&quality=75">
+
+<div class="nombre">Pantalón Balloon Verde</div>
+</div>
+
+<!-- PRODUCTO 8 -->
+<div class="product" onclick="abrir(this)"
+data-precio="$399"
+data-talla="Talla 3,5,7,9,11,13"
+data-desc="Jeans relax con estampado de moños en mezclilla azul.">
+
+<img src="https://app.cuidadoconelperro.com.mx/media/catalog/product/1/2/122260221010353-2.jpg?optimize=medium&fit=bounds&width=768&quality=75">
+
+<div class="nombre">Jeans Relax Moños</div>
+</div>
+
+<!-- PRODUCTO 9 -->
+<div class="product" onclick="abrir(this)"
+data-precio="$429"
+data-talla="Talla 3,5"
+data-desc="Jeans wide leg con estoperoles brillantes.">
+
+<img src="https://app.cuidadoconelperro.com.mx/media/catalog/product/1/2/122251221010916-2.jpg?optimize=medium&fit=bounds&width=768&quality=75">
+
+<div class="nombre">Jeans Wide Leg con Brillos</div>
+</div>
+
+<!-- PRODUCTO 10 -->
+<div class="product" onclick="abrir(this)"
+data-precio="$349"
+data-talla="Talla 3,5,7,9"
+data-desc="Jeans biker azul con cortes en rodillas.">
+
+<img src="https://app.cuidadoconelperro.com.mx/media/catalog/product/1/2/122251021010753-2.jpg?optimize=medium&fit=bounds&width=768&quality=75">
+
+<div class="nombre">Jeans Biker Azul</div>
+</div>
+
+</div>
+
+<div id="modal" class="modal">
+<div class="modal-content">
+
+<span class="close" onclick="cerrar()">×</span>
+
+<img id="modal-img">
+
+<h3 id="modal-precio"></h3>
+<h3 id="modal-talla"></h3>
+<p id="modal-desc"></p>
+
+</div>
+</div>
+
+<script>
+
+function abrir(producto){
+
+document.getElementById("modal").style.display="block";
+
+document.getElementById("modal-img").src =
+producto.querySelector("img").src;
+
+document.getElementById("modal-precio").innerText =
+"Precio: " + producto.dataset.precio;
+
+document.getElementById("modal-talla").innerText =
+"Talla: " + producto.dataset.talla;
+
+document.getElementById("modal-desc").innerText =
+producto.dataset.desc;
+
+}
+
+function cerrar(){
+document.getElementById("modal").style.display="none";
+}
+
+</script>
+
+</body>
+</html>

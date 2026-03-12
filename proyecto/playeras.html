@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Catálogo de Playeras</title>
+
+<style>
+
+body{
+background:#D1E9F6;
+font-family:'Comic Sans MS',cursive;
+text-align:center;
+margin:0;
+overflow-x:hidden;
+}
+
+/* TITULO */
+
+h1{
+font-family:'Brush Script MT',cursive;
+color:#0F0F0F;
+font-size:60px;
+margin-top:30px;
+text-shadow:2px 2px 8px #ffb6da;
+}
+
+/* CATALOGO */
+
+.catalogo{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:30px;
+padding:40px;
+width:90%;
+margin:auto;
+}
+
+/* TARJETAS */
+
+.product{
+background:white;
+border-radius:30px;
+padding:15px;
+box-shadow:0 8px 20px rgba(255,105,180,0.4);
+cursor:pointer;
+transition:transform .3s, box-shadow .3s;
+position:relative;
+overflow:hidden;
+}
+
+.product:hover{
+transform:translateY(-8px) scale(1.05);
+box-shadow:0 12px 28px rgba(255,105,180,0.7);
+}
+
+/* BRILLO EN TARJETAS */
+
+.product::before{
+content:"";
+position:absolute;
+top:-50%;
+left:-50%;
+width:200%;
+height:200%;
+background:linear-gradient(
+120deg,
+transparent 30%,
+rgba(255,255,255,0.8) 50%,
+transparent 70%
+);
+transform:rotate(25deg) translateX(-100%);
+transition:transform .6s;
+pointer-events:none;
+}
+
+.product:hover::before{
+transform:rotate(25deg) translateX(100%);
+}
+
+.product img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.nombre{
+margin-top:10px;
+color:#ff4da6;
+font-size:18px;
+font-
+weight:bold;
+}
+
+/* MODAL */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+animation:fadeIn .4s ease;
+}
+
+.modal-content{
+background:white;
+width:350px;
+margin:10% auto;
+padding:20px;
+border-radius:25px;
+animation:zoomIn .4s ease;
+}
+
+.modal img{
+width:250px;
+border-radius:10px;
+}
+
+.close{
+float:right;
+font-size:30px;
+cursor:pointer;
+color:#ff4da6;
+}
+
+/* ANIMALITOS NADANDO */
+
+.once{
+position:fixed;
+font-size:25px;
+animation:nadar 12s linear infinite;
+}
+
+@keyframes nadar{
+0%{
+transform:translateX(-100px) translateY(0px);
+}
+100%{
+transform:translateX(120vw) translateY(20px);
+}
+}
+
+/* PLANTITAS */
+
+.planta{
+position:fixed;
+bottom:0;
+font-size:30px;
+opacity:0.8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>👕 Catálogo de Playeras 👕</h1>
+
+<div class="catalogo">
+
+<div class="product" onclick="abrir(this)" data-precio="$400" data-talla="CH, G, M" data-desc="playera de algodon vintage con estampado.">
+<img src="https://http2.mlstatic.com/D_NQ_NP_917107-CBT96100699337_102025-O-playeras-casuales-clasicas-ideales-para-usar-como-streetwear.webp">
+<div class="nombre">Playera Casual</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$8500" data-talla="CH,G,M" data-desc="vivienne westwood violin shirt estampado de cuadros.">
+<img src="https://img01.ztat.net/article/spp-media-p1/973a5870b7584b83b914e962bf090139/2a9eb5c8b5f34c67924c95822dc41129.jpg?imwidth=103&filter=packshot">
+<div class="nombre">Playera Estilo Urbano</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$400" data-talla="CH,G,M" data-desc="color blanco solido con bolsillo pequeño.">
+<img src="https://sharklas.com/cdn/shop/files/1_71348c93-97d9-4b78-96c1-57948d2374cd_1024x1024.jpg?v=1730532437">
+<div class="nombre">Playera Minimalista</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$1000" data-talla="CH,G,M" data-desc="playera de nirvana in utero merch color gris.">
+<img src="https://i.pinimg.com/236x/7c/9b/1b/7c9b1b8bdaf401fd2944eb6eaa8e35c5.jpg?nii=t">
+<div class="nombre">Playera Vintage</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$350" data-talla="CH,G,M" data-desc="color azul celeste de tela sintetica transpirable .">
+<img src="https://www.elpalaciodehierro.com/on/demandware.static/-/Sites-palacio-master-catalog/default/dw87ec039f/images/42385158/VERDE%20AGUA/large/42385159_VERDE%20AGUA_x1.jpg">
+<div class="nombre">Playera Deportiva</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$300" data-talla="CH,G,M" data-desc="playera de berserk de algodon con estampado corte amplio.">
+<img src="https://http2.mlstatic.com/D_NQ_NP_772913-MLM90621920409_082025-O-playeras-oversize-gym-anime-gimnasio-berserk-deportivas.webp">
+<div class="nombre">Playera Oversize</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$500" data-talla="CH,G,M" data-desc="payera street de algodon de peso pesado para caida estructurada.">
+<img src="https://http2.mlstatic.com/D_NQ_NP_998316-MLM84280450644_052025-O-playeras-oversize-streetwear-exclusivo.webp">
+<div class="nombre">Playera Street</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$200" data-talla="CH,G,M" data-desc="composicion de algodon con elastano para ajustar el cuerpo.">
+<img src="https://static.lefties.com/assets/public/41fe/1b17/1f7f4ed7ae3e/7366d95c8c0a/01022312251-A1/01022312251-A1.jpg?ts=1737719998850&w=1024">
+<div class="nombre">Playera Básica</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$500" data-talla="CH,G,M" data-desc="corte slim fit o baby tee de algodon premium .">
+<img src="https://tommymx.vtexassets.com/arquivos/ids/822615/Tommy-Hilfiger-DW0DW21838GW1-1.jpg?v=638978691605470000">
+<div class="nombre">Playera Moderna</div>
+</div>
+
+<div class="product" onclick="abrir(this)" data-precio="$200" data-talla="CH,G,M" data-desc="de algodon tejido de chifon con estampado resistente.">
+<img src="https://http2.mlstatic.com/D_NQ_NP_805509-MLM85305140714_062025-O.webp">
+<div class="nombre">Playera Deluxe</div>
+</div>
+
+</div>
+
+<div id="modal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="cerrar()">×</span>
+<img id="modal-img">
+<h3 id="modal-precio"></h3>
+<h3 id="modal-talla"></h3>
+<p id="modal-desc"></p>
+</div>
+</div>
+
+<!-- ANIMALITOS NADANDO -->
+
+<div class="once" style="top:20%;">🦦</div>
+<div class="once" style="top:35%; animation-delay:2s;">🦦</div>
+<div class="once" style="top:50%; animation-delay:4s;">🦦</div>
+<div class="once" style="top:65%; animation-delay:6s;">🦦</div>
+
+<!-- PLANTITAS -->
+
+<div class="planta" style="left:5%;">🌱</div>
+<div class="planta" style="left:15%;">🌿</div>
+<div class="planta" style="left:30%;">🌱</div>
+<div class="planta" style="left:50%;">🌿</div>
+<div class="planta" style="left:70%;">🌱</div>
+<div class="planta" style="left:90%;">🌿</div>
+
+<script>
+
+function abrir(producto){
+
+document.getElementById("modal").style.display="block";
+
+document.getElementById("modal-img").src =
+producto.querySelector("img").src;
+
+document.getElementById("modal-precio").innerText =
+"Precio: " + producto.dataset.precio;
+
+document.getElementById("modal-talla").innerText =
+"Talla: " + producto.dataset.talla;
+
+document.getElementById("modal-desc").innerText =
+producto.dataset.desc;
+
+}
+
+function cerrar(){
+document.getElementById("modal").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
